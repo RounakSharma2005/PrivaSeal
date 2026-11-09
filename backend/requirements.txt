@@ -76,3 +76,4 @@ presidio-anonymizer
 google-cloud-dlp
 pytesseract
 Pillow
+litellm ==  1.108.0
