@@ -1,0 +1,191 @@
+{
+    "overall": {
+        "true_positives": 5,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+    },
+    "categories": {
+        "PAN": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "EMAIL_ADDRESS": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "INDIAN_PHONE": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "UPI_ID": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "IFSC": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        }
+    },
+    "dataset_size": 6,
+    "case_results": [
+        {
+            "case_id": "case_001",
+            "text": "My PAN is ABCDE1234F.",
+            "expected": [
+                {
+                    "type": "PAN",
+                    "value": "ABCDE1234F"
+                }
+            ],
+            "detected": [
+                {
+                    "type": "PAN",
+                    "value": "ABCDE1234F"
+                }
+            ],
+            "true_positives": [
+                {
+                    "type": "PAN",
+                    "value": "ABCDE1234F"
+                }
+            ],
+            "false_positives": [],
+            "false_negatives": []
+        },
+        {
+            "case_id": "case_002",
+            "text": "Contact me at test.person@example.com",
+            "expected": [
+                {
+                    "type": "EMAIL_ADDRESS",
+                    "value": "test.person@example.com"
+                }
+            ],
+            "detected": [
+                {
+                    "type": "EMAIL_ADDRESS",
+                    "value": "test.person@example.com"
+                }
+            ],
+            "true_positives": [
+                {
+                    "type": "EMAIL_ADDRESS",
+                    "value": "test.person@example.com"
+                }
+            ],
+            "false_positives": [],
+            "false_negatives": []
+        },
+        {
+            "case_id": "case_003",
+            "text": "Call me at 9876543210.",
+            "expected": [
+                {
+                    "type": "INDIAN_PHONE",
+                    "value": "9876543210"
+                }
+            ],
+            "detected": [
+                {
+                    "type": "INDIAN_PHONE",
+                    "value": "9876543210"
+                }
+            ],
+            "true_positives": [
+                {
+                    "type": "INDIAN_PHONE",
+                    "value": "9876543210"
+                }
+            ],
+            "false_positives": [],
+            "false_negatives": []
+        },
+        {
+            "case_id": "case_004",
+            "text": "The product costs 450 rupees.",
+            "expected": [],
+            "detected": [],
+            "true_positives": [],
+            "false_positives": [],
+            "false_negatives": []
+        },
+        {
+            "case_id": "case_005",
+            "text": "Send payment to demo@okaxis.",
+            "expected": [
+                {
+                    "type": "UPI_ID",
+                    "value": "demo@okaxis"
+                }
+            ],
+            "detected": [
+                {
+                    "type": "UPI_ID",
+                    "value": "demo@okaxis"
+                }
+            ],
+            "true_positives": [
+                {
+                    "type": "UPI_ID",
+                    "value": "demo@okaxis"
+                }
+            ],
+            "false_positives": [],
+            "false_negatives": []
+        },
+        {
+            "case_id": "case_006",
+            "text": "My bank IFSC is SBIN0001234.",
+            "expected": [
+                {
+                    "type": "IFSC",
+                    "value": "SBIN0001234"
+                }
+            ],
+            "detected": [
+                {
+                    "type": "IFSC",
+                    "value": "SBIN0001234"
+                }
+            ],
+            "true_positives": [
+                {
+                    "type": "IFSC",
+                    "value": "SBIN0001234"
+                }
+            ],
+            "false_positives": [],
+            "false_negatives": []
+        }
+    ],
+    "metadata": {
+        "project": "Conseal",
+        "evaluation_type": "synthetic_baseline",
+        "generated_at": "2026-11-05T06:58:59.971059+00:00",
+        "dataset_size": 6,
+        "detector": "analyze_text"
+    }
+}

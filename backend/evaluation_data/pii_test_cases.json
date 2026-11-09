@@ -1,0 +1,58 @@
+
+[
+  {
+    "id": "case_001",
+    "text": "My PAN is ABCDE1234F.",
+    "expected": [
+      {
+        "type": "PAN",
+        "value": "ABCDE1234F"
+      }
+    ]
+  },
+  {
+    "id": "case_002",
+    "text": "Contact me at test.person@example.com",
+    "expected": [
+      {
+        "type": "EMAIL_ADDRESS",
+        "value": "test.person@example.com"
+      }
+    ]
+  },
+  {
+    "id": "case_003",
+    "text": "Call me at 9876543210.",
+    "expected": [
+      {
+        "type": "INDIAN_PHONE",
+        "value": "9876543210"
+      }
+    ]
+  },
+  {
+    "id": "case_004",
+    "text": "The product costs 450 rupees.",
+    "expected": []
+  },
+  {
+    "id": "case_005",
+    "text": "Send payment to demo@okaxis.",
+    "expected": [
+      {
+        "type": "UPI_ID",
+        "value": "demo@okaxis"
+      }
+    ]
+  },
+  {
+    "id": "case_006",
+    "text": "My bank IFSC is SBIN0001234.",
+    "expected": [
+      {
+        "type": "IFSC",
+        "value": "SBIN0001234"
+      }
+    ]
+  }
+]

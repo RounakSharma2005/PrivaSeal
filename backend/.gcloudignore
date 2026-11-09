@@ -1,0 +1,13 @@
+# .gcloudignore - Controls what gets uploaded to Cloud Build
+# Unlike .gitignore, this explicitly INCLUDES the service account key
+# so it's available in the Cloud Run container.
+
+.venv/
+__pycache__/
+.git/
+.DS_Store
+.dockerignore
+.gcloudignore
+.adk/
+.agents/
+*.pyc
