@@ -1,8 +1,8 @@
 FROM python:3.11-slim
 
 # Prevent Python from writing bytecode and buffering logs
-ENV PYTHONDONTWRITEBYTECODE=1 
-    PYTHONUNBUFFERED=1 
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
 
 WORKDIR /app
