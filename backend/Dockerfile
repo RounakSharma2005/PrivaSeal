@@ -1,44 +1,41 @@
-
-# Python runtime
+```dockerfile
 FROM python:3.11-slim
 
-# Python and application environment
+# Python runtime configuration
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1 \
-    TESSERACT_CMD=/usr/bin/tesseract
+    PIP_NO_CACHE_DIR=1
 
-# Application working directory
 WORKDIR /app
 
-# Install system dependencies for OCR and PDF processing
+# Install system dependencies for PDF processing and OCR
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tesseract-ocr \
     tesseract-ocr-eng \
     libgl1 \
     libglib2.0-0 \
-    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy Python dependencies first for better Docker layer caching
+# Copy Python dependencies
 COPY requirements.txt .
 
-# Install Python dependencies
+# Install Python dependencies and spaCy English model
 RUN python -m pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    python -m pip install --no-cache-dir -r requirements.txt && \
+    python -m spacy download en_core_web_sm
 
-# Copy backend application
+# Copy backend source code
 COPY . .
 
-# Create a non-root user and assign application ownership
-RUN useradd --create-home --shell /usr/sbin/nologin appuser && \
+# Create a non-root user for security
+RUN useradd --create-home appuser && \
     chown -R appuser:appuser /app
 
-# Run application without root privileges
 USER appuser
 
-# Render provides PORT; use 8080 as the default
+# Render dynamically assigns PORT
 EXPOSE 8080
 
 # Start FastAPI
 CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8080}"]
+```
